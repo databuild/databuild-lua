@@ -1,5 +1,6 @@
 import os
 from setuptools import setup, find_packages
+import subprocess
 
 VERSION = "0.0.1"
 
@@ -11,13 +12,15 @@ def read(fname):
     except IOError:
         return ''
 
-
 requirements = read('requirements.txt').splitlines()
 
 pypi_requirements = [req for req in requirements if not req.startswith('http')]
 dependency_links = [req for req in requirements if req.startswith('http')]
 
 tests_requirements = read('test-requirements.txt').splitlines()
+
+# Temporary fix until databuild gets released
+subprocess.call(["pip", "install", "--quiet", "https://github.com/databuild/databuild/archive/master.zip"])
 
 setup(
     name="databuild-lua",

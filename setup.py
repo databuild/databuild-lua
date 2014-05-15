@@ -25,7 +25,7 @@ subprocess.call(["pip", "install", "--quiet", "https://github.com/databuild/data
 setup(
     name="databuild_lua",
     version=VERSION,
-    description="a build tool for data",
+    description="Lua Environment Plugin for Databuild",
     long_description=read('README.rst'),
     url='https://github.com/databuild/databuild-lua',
     license='BSD',

@@ -41,3 +41,13 @@ Install ``databuild`` with the `WITHLUA` environment variable set::
 After ``databuild`` is installed, you can re-link ``LuaJIT`` if you need::
 
   $ brew link luajit
+
+Configuration
+=============
+
+Add `'lua': 'databuild_lua.lua.LuaEnvironment'` to your `LANGUAGES` settings::
+
+    LANGUAGES = {
+        'python': 'databuild.environments.python.PythonEnvironment',
+        'lua': 'databuild_lua.lua.LuaEnvironment',
+    }

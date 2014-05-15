@@ -1,11 +1,17 @@
 from unittest import TestCase
 from databuild.adapters.locmem.models import LocMemBook
 
+from databuild import settings as default_settings
+
 
 class ParserTestCase(TestCase):
+    def setUp(self):
+        self.settings = default_settings
+        self.settings.LANGUAGES['lua'] = 'databuild_lua.lua.LuaEnvironment'
+
     def test_parse_lua(self):
         expression = {"language": "lua", "content": "return row['a']"}
-        book = LocMemBook('project1')
+        book = LocMemBook('project1', settings=self.settings)
 
         fn = book.operator.parse_expression(expression)
         row = {'a': 2}
@@ -41,7 +47,7 @@ class ParserTestCase(TestCase):
             {'id': 2, 'z': 4.5},
         ]
 
-        book = LocMemBook('project1')
+        book = LocMemBook('project1', settings=self.settings)
         sheet_a = book.add_sheet('a', ['id', 'x', 'y'])
         sheet_b = book.add_sheet('b', ['id', 'z'])
 

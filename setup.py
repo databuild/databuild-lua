@@ -23,11 +23,11 @@ tests_requirements = read('test-requirements.txt').splitlines()
 subprocess.call(["pip", "install", "--quiet", "https://github.com/databuild/databuild/archive/master.zip"])
 
 setup(
-    name="databuild-lua",
+    name="databuild_lua",
     version=VERSION,
     description="a build tool for data",
     long_description=read('README.rst'),
-    url='https://github.com/fcurella/databuild',
+    url='https://github.com/databuild/databuild-lua',
     license='BSD',
     author='Flavio Curella',
     author_email='flavio.curella@gmail.com',

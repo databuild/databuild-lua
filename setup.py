@@ -22,6 +22,9 @@ tests_requirements = read('test-requirements.txt').splitlines()
 # Temporary fix until databuild gets released
 subprocess.call(["pip", "install", "--quiet", "https://github.com/databuild/databuild/archive/master.zip"])
 
+# Temporary fix until lupa gets released
+subprocess.call(["pip", "install", "--quiet", "https://github.com/scoder/lupa/archive/master.tar.gz"])
+
 setup(
     name="databuild_lua",
     version=VERSION,

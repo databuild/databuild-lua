@@ -13,7 +13,7 @@ class LuaEnvironment(BaseEnvironment):
     def __init__(self, book):
         lua_runtime = LuaRuntime()
         functions = []
-        [functions.extend(load_module(module)) for module in settings.FUNCTIONS]
+        [functions.extend(load_module(module)) for module in settings.FUNCTION_MODULES]
         lua_globals = lua_runtime.globals()
 
         self.lua_copy = lua_runtime.eval("""

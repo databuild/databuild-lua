@@ -21,7 +21,7 @@ class ParserTestCase(TestCase):
 
     def test_lua_function(self):
         operation = {
-            "path": "columns.update_column",
+            "operation": "columns.update_column",
             "description": "",
             "params": {
                 "sheet": "a",

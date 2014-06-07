@@ -19,9 +19,6 @@ dependency_links = [req for req in requirements if req.startswith('http')]
 
 tests_requirements = read('test-requirements.txt').splitlines()
 
-# Temporary fix until databuild gets released
-subprocess.call(["pip", "install", "--quiet", "https://github.com/databuild/databuild/archive/master.zip"])
-
 # Temporary fix until lupa gets released
 subprocess.call(["pip", "install", "--quiet", "https://github.com/scoder/lupa/archive/master.tar.gz"])
 
@@ -36,12 +33,14 @@ setup(
     author_email='flavio.curella@gmail.com',
     packages=find_packages(exclude=['tests']),
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Environment :: Console',
         'Intended Audience :: Science/Research',
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.2',
+        'Programming Language :: Python :: 3.3',
         'Topic :: Scientific/Engineering :: Information Analysis',
     ],
     install_requires=pypi_requirements,

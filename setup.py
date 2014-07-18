@@ -1,5 +1,6 @@
 import os
 from setuptools import setup, find_packages
+from setuptools.command.install import install
 import subprocess
 
 VERSION = "0.0.2"
@@ -19,8 +20,13 @@ dependency_links = [req for req in requirements if req.startswith('http')]
 
 tests_requirements = read('test-requirements.txt').splitlines()
 
-# Temporary fix until lupa gets released
-subprocess.call(["pip", "install", "--quiet", "https://github.com/scoder/lupa/archive/master.tar.gz"])
+
+class InstallLupa(install):
+    def run(self):
+        # Temporary fix until lupa gets released
+        install.run(self)
+        subprocess.check_call(["pip", "install", "--quiet", "https://github.com/scoder/lupa/archive/master.tar.gz"], cwd=self.install_lib)
+
 
 setup(
     name="databuild_lua",
@@ -32,6 +38,7 @@ setup(
     author='Flavio Curella',
     author_email='flavio.curella@gmail.com',
     packages=find_packages(exclude=['tests']),
+    cmdclass={"install": InstallLupa},
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Console',

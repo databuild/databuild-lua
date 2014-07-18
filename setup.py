@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 from setuptools.command.install import install
 import subprocess
 
-VERSION = "0.0.2"
+VERSION = "0.0.3"
 
 
 def read(fname):

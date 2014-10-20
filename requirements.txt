@@ -7,3 +7,4 @@ python-dateutil==2.2
 tablib==0.10.0
 cython==0.20.1
 https://github.com/scoder/lupa/archive/master.tar.gz
+Jinja2>=2.7.3
